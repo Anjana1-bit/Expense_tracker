@@ -7,28 +7,43 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Center(
-          child: SingleChildScrollView(
+      backgroundColor: const Color(0xfff5f5f5), // light grey like Figma
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(24),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 12,
+                  spreadRadius: 2,
+                ),
+              ],
+            ),
+
             child: Column(
               children: [
+                // ICON
                 Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.teal.shade100,
-                    borderRadius: BorderRadius.circular(12),
+                  padding: const EdgeInsets.all(22),
+                  decoration: const BoxDecoration(
+                    color: Color(0xffe0f7f4),
+                    shape: BoxShape.circle,
                   ),
                   child: const Icon(
                     Icons.receipt_long_rounded,
-                    color: Colors.teal,
-                    size: 50,
+                    color: Color(0xff22C7A9),
+                    size: 45,
                   ),
                 ),
 
                 const SizedBox(height: 20),
 
+                // TITLE
                 const Text(
                   "Welcome to ExpenseTrack!",
                   style: TextStyle(
@@ -37,41 +52,51 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 8),
+                const SizedBox(height: 6),
 
                 const Text(
                   "Track your expenses with ease",
-                  style: TextStyle(fontSize: 16, color: Colors.black54),
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black54,
+                  ),
                 ),
 
                 const SizedBox(height: 32),
 
-                // Email
+                // EMAIL FIELD
                 TextField(
                   decoration: InputDecoration(
+                    hintText: "your.email@example.com",
                     labelText: "Email",
+                    filled: true,
+                    fillColor: Colors.grey.shade200,
                     prefixIcon: const Icon(Icons.email_outlined),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(14),
                     ),
                   ),
                 ),
 
                 const SizedBox(height: 16),
 
-                // Password
+                // PASSWORD FIELD
                 TextField(
                   obscureText: true,
                   decoration: InputDecoration(
                     labelText: "Password",
+                    filled: true,
+                    fillColor: Colors.grey.shade200,
                     prefixIcon: const Icon(Icons.lock_outline),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(14),
                     ),
                   ),
                 ),
 
-                const SizedBox(height: 10),
+                const SizedBox(height: 6),
 
                 Align(
                   alignment: Alignment.centerRight,
@@ -79,41 +104,47 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {},
                     child: const Text(
                       "Forgot Password?",
-                      style: TextStyle(color: Colors.teal),
+                      style: TextStyle(
+                        color: Color(0xff22C7A9),
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ),
 
                 const SizedBox(height: 10),
 
-                // Login button
+                // LOGIN BUTTON
                 SizedBox(
                   width: double.infinity,
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.teal,
+                      backgroundColor: const Color(0xff22C7A9),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(14),
                       ),
                     ),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => const HomeScreen()),
+                        MaterialPageRoute(
+                          builder: (_) => const HomeScreen(),
+                        ),
                       );
                     },
                     child: const Text(
                       "Login",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 17,
                         color: Colors.white,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 24),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -124,11 +155,15 @@ class LoginScreen extends StatelessWidget {
                       child: const Text(
                         "Sign Up",
                         style: TextStyle(
-                            color: Colors.teal, fontWeight: FontWeight.bold),
+                          color: Color(0xff22C7A9),
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
-                )
+                ),
+
+                const SizedBox(height: 8),
               ],
             ),
           ),
